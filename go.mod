@@ -1,1 +1,1 @@
-module github.com/go-gorp/gorp
+module github.com/yesnault/gorp
