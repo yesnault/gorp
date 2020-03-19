@@ -280,6 +280,10 @@ func columnToFieldIndex(m *DbMap, t reflect.Type, name string, cols []string) ([
 			if tableMapped {
 				colMap := colMapOrNil(table, fieldName)
 				if colMap != nil {
+					if colMap.Transient {
+						/* fsamin: [PATCH] : we don't column map to be scan*/
+						return false
+					}
 					fieldName = colMap.ColumnName
 				}
 			}
